@@ -1,4 +1,4 @@
-package com.unal.poo.greenguard;
+package com.unal.poo.green_ward;
 
 import org.junit.Test;
 

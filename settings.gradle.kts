@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "greenGuard"
+rootProject.name = "green-ward"
 include(":app")
+ 

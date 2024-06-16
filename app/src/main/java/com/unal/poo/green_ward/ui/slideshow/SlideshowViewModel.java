@@ -1,4 +1,4 @@
-package com.unal.poo.greenguard.ui.slideshow;
+package com.unal.poo.green_ward.ui.slideshow;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

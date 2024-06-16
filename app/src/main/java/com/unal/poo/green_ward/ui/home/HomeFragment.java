@@ -1,4 +1,4 @@
-package com.unal.poo.greenguard.ui.home;
+package com.unal.poo.green_ward.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.unal.poo.greenguard.databinding.FragmentHomeBinding;
+import com.unal.poo.green_ward.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 

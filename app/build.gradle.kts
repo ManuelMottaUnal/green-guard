@@ -1,13 +1,13 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.android.application)
 }
 
 android {
-    namespace = "com.unal.poo.greenguard"
+    namespace = "com.unal.poo.green_ward"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.unal.poo.greenguard"
+        applicationId = "com.unal.poo.green_ward"
         minSdk = 31
         targetSdk = 34
         versionCode = 1
@@ -19,7 +19,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {

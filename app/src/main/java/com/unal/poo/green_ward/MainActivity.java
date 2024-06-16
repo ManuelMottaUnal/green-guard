@@ -1,4 +1,4 @@
-package com.unal.poo.greenguard;
+package com.unal.poo.green_ward;
 
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.unal.poo.greenguard.databinding.ActivityMainBinding;
+import com.unal.poo.green_ward.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
