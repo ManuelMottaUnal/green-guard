@@ -16,6 +16,9 @@
             android:name=".Clima"
             android:exported="false" />
         <activity
+            android:name=".LOGIN"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
