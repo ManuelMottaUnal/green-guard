@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/redondeo_esquina" />
+    <solid android:color="@color/clima_bg_segundario" /> <!-- Color de fondo -->
+</shape>
