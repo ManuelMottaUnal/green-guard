@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="clima_bg_principal">#00FFFF</color>
+    <color name="clima_bg_segundario">#39D2C0</color>
+    <color name="clima_text">#043637</color>
 </resources>
