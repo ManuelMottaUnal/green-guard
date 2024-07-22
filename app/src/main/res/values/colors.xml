@@ -7,7 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="clima_bg_principal">#00FFFF</color>
+    <color name="clima_bg_principal">#AAAAAA</color>
     <color name="clima_bg_segundario">#39D2C0</color>
     <color name="clima_text">#043637</color>
+    <color name="plantas_background">#74BD38</color>
+    <color name="plantas_bg_contenedor">#402300</color>
 </resources>
+
