@@ -119,11 +119,10 @@
 
                                 <TextView
                                     android:id="@+id/dato1"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="51dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="18"
                                     android:textColor="@color/white"
                                     android:textSize="48sp" />
 
@@ -213,8 +212,9 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp">
+                    android:layout_height="124dp"
+                    android:padding="15dp"
+                    tools:layout_editor_absoluteY="1dp">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/plant3"

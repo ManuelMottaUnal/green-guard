@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "982098523175",
+    "firebase_url": "https://greenguard-e386d-default-rtdb.firebaseio.com",
+    "project_id": "greenguard-e386d",
+    "storage_bucket": "greenguard-e386d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982098523175:android:a27ceec96706cf20484a02",
+        "android_client_info": {
+          "package_name": "com.unal.poo.green_ward"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAYl5iuBNy-JnWl-G7ALJHXHuEpTVMfLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
