@@ -26,6 +26,7 @@ public class Plantas extends AppCompatActivity {
     TextView mTierra2View;
     TextView mTierra3View;
 
+    Button inicia;
     Button iniciar;
     Button inicial;
 
@@ -36,6 +37,16 @@ public class Plantas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_plantas);
+
+        inicia= (Button)findViewById(R.id.buttonSinc);
+
+        inicia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent( Plantas.this, Sincronizar.class);
+                startActivity(i);
+            }
+        });
 
         iniciar= (Button)findViewById(R.id.buttonClima);
 

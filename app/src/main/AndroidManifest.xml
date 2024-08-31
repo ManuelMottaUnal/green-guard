@@ -17,6 +17,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".Sincronizar"
+            android:exported="false" />
+
+        <activity
             android:name=".Registrar"
             android:exported="false" />
 
