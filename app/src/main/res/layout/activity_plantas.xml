@@ -122,37 +122,18 @@
                                 android:textColor="@color/white"
                                 android:textSize="24sp" />
 
-                            <LinearLayout
-                                android:layout_width="103dp"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/dato1"
-                                    android:layout_width="61dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:textColor="@color/white"
-                                    android:textSize="48sp" />
-
-                                <TextView
-                                    android:id="@+id/textView37"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="%"
-                                    android:textColor="@color/white"
-                                    android:textSize="34sp" />
-                            </LinearLayout>
+                            <ImageView
+                                android:id="@+id/imagen1"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                tools:srcCompat="@tools:sample/avatars" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="131dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp">
 
@@ -183,31 +164,11 @@
                                 android:textColor="@color/white"
                                 android:textSize="24sp" />
 
-                            <LinearLayout
+                            <ImageView
+                                android:id="@+id/imagen2"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/dato2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="16"
-                                    android:textColor="@color/white"
-                                    android:textSize="48sp" />
-
-                                <TextView
-                                    android:id="@+id/textView39"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="%"
-                                    android:textColor="@color/white"
-                                    android:textSize="34sp" />
-                            </LinearLayout>
+                                android:layout_height="50dp"
+                                tools:srcCompat="@tools:sample/avatars" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -222,7 +183,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="124dp"
+                    android:layout_height="wrap_content"
                     android:padding="15dp"
                     tools:layout_editor_absoluteY="1dp">
 
@@ -250,32 +211,12 @@
                                 android:textColor="@color/white"
                                 android:textSize="24sp" />
 
-                            <LinearLayout
+                            <ImageView
+                                android:id="@+id/imagen3"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:orientation="horizontal">
+                                android:layout_height="50dp"
+                                tools:srcCompat="@tools:sample/avatars" />
 
-                                <TextView
-                                    android:id="@+id/dato3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="20"
-                                    android:textColor="@color/white"
-                                    android:textSize="48sp" />
-
-                                <TextView
-                                    android:id="@+id/signo"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center|center_horizontal"
-                                    android:text="%"
-                                    android:textColor="@color/white"
-                                    android:textSize="34sp" />
-                            </LinearLayout>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -309,31 +250,12 @@
                                 android:textColor="@color/white"
                                 android:textSize="24sp" />
 
-                            <LinearLayout
+                            <ImageView
+                                android:id="@+id/imagen4"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:orientation="horizontal">
+                                android:layout_height="50dp"
+                                tools:srcCompat="@tools:sample/avatars" />
 
-                                <TextView
-                                    android:id="@+id/dato4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="15"
-                                    android:textColor="@color/white"
-                                    android:textSize="48sp" />
-
-                                <TextView
-                                    android:id="@+id/textView35"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:gravity="center"
-                                    android:text="%"
-                                    android:textColor="@color/white"
-                                    android:textSize="34sp" />
-                            </LinearLayout>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>

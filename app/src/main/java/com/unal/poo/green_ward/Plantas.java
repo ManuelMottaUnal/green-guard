@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -22,9 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Plantas extends AppCompatActivity {
 
-    TextView mTierra1View;
-    TextView mTierra2View;
-    TextView mTierra3View;
+    ImageView mImagen1View;
+    ImageView mImagen2View;
+    ImageView mImagen3View;
 
     Button inicia;
     Button iniciar;
@@ -67,10 +68,10 @@ public class Plantas extends AppCompatActivity {
             }
         });
 
-        // Asocia las TextView en tu layout
-        mTierra1View = findViewById(R.id.dato1);
-        mTierra2View = findViewById(R.id.dato2);
-        mTierra3View = findViewById(R.id.dato3);
+        // Asocia las TextView en el layout
+        mImagen1View = findViewById(R.id.imagen1);
+        mImagen2View = findViewById(R.id.imagen2);
+        mImagen3View = findViewById(R.id.imagen3);
 
         // Inicializa la referencia a la base de datos
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
@@ -81,12 +82,13 @@ public class Plantas extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && dataSnapshot.hasChild("Humedad de piso 1")) {
                     try {
-                        int temperature = Integer.parseInt(dataSnapshot.child("Humedad de piso 1").getValue().toString());
-                        mTierra1View.setText(String.valueOf(temperature));
+                        int humedad = Integer.parseInt(dataSnapshot.child("Humedad de piso 1").getValue().toString());
+                        asignarEmoji(humedad, mImagen1View);
                     } catch (NumberFormatException e) {
                         Log.e("plantas", "Error al convertir a int: " + e.getMessage());
-                        mTierra1View.setText("Error de formato");
+
                     }
+
                 } else {
                     Log.d("plantas", "No existe el nodo 'Humedad de piso 1:'");
                     // Manejar el caso en el que los datos o el nodo no existen
@@ -94,12 +96,13 @@ public class Plantas extends AppCompatActivity {
 
                 if (dataSnapshot.exists() && dataSnapshot.hasChild("Humedad de piso 2")) {
                     try {
-                        int temperature = Integer.parseInt(dataSnapshot.child("Humedad de piso 2").getValue().toString());
-                        mTierra2View.setText(String.valueOf(temperature));
+                        int humedad = Integer.parseInt(dataSnapshot.child("Humedad de piso 2").getValue().toString());
+                        asignarEmoji(humedad, mImagen2View);
                     } catch (NumberFormatException e) {
                         Log.e("plantas", "Error al convertir a int: " + e.getMessage());
-                        mTierra2View.setText("Error de formato");
+
                     }
+
                 } else {
                     Log.d("plantas", "No existe el nodo 'Humedad de piso 2:'");
                     // Manejar el caso en el que los datos o el nodo no existen
@@ -107,18 +110,22 @@ public class Plantas extends AppCompatActivity {
 
                 if (dataSnapshot.exists() && dataSnapshot.hasChild("Humedad de piso 3")) {
                     try {
-                        int temperature = Integer.parseInt(dataSnapshot.child("Humedad de piso 3").getValue().toString());
-                        mTierra3View.setText(String.valueOf(temperature));
+                        int humedad = Integer.parseInt(dataSnapshot.child("Humedad de piso 3").getValue().toString());
+                        asignarEmoji(humedad, mImagen3View);
                     } catch (NumberFormatException e) {
                         Log.e("plantas", "Error al convertir a int: " + e.getMessage());
-                        mTierra3View.setText("Error de formato");
+
                     }
+
                 } else {
                     Log.d("plantas", "No existe el nodo 'Humedad de piso 3:'");
                     // Manejar el caso en el que los datos o el nodo no existen
                 }
 
             }
+
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -127,10 +134,27 @@ public class Plantas extends AppCompatActivity {
             }
         });
 
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+
+
+
+
+    }
+    private void asignarEmoji(int humedad, ImageView imageView) {
+        if (humedad < 30) {
+            imageView.setImageResource(R.drawable.emoji_triste);
+        } else if (humedad >= 30 && humedad <= 50) {
+            imageView.setImageResource(R.drawable.emoji_serio);
+        } else {
+            imageView.setImageResource(R.drawable.emoji_feliz);
+        }
     }
 }
