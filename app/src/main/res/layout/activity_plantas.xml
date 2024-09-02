@@ -47,7 +47,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/boton_esquinas_redondas"
+            style= "@style/estiloBotonBasico"
             android:text="Clima" />
 
         <Button
