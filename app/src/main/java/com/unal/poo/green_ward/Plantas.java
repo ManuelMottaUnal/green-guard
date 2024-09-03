@@ -43,7 +43,7 @@ public class Plantas extends AppCompatActivity {
         inicia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent( Plantas.this, Sincronizar.class);
+                Intent i = new Intent( Plantas.this, Synchronization.class);
                 startActivity(i);
             }
         });

@@ -150,4 +150,7 @@ public class Clima extends AppCompatActivity {
 
         Glide.with(this).load(url).into(imageViewClima);
     }
+    private void readWeather() {
+
+    }
 }
