@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="Titulo" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textSize">25sp</item>
@@ -7,6 +8,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">center</item>
     </style>
+
     <style name="Subtitulo" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textSize">20sp</item>
@@ -14,8 +16,21 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">center</item>
     </style>
+
     <style name="TextoBasico" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textColor">@color/clima_text</item>
     </style>
+
+    <style name="estiloBotonBasico" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Fondo y esquinas redondeadas -->
+        <item name="android:background">@drawable/boton_esquinas_redondas</item>
+        <!-- Texto centrado -->
+        <item name="android:gravity">center</item>
+        <!-- Color de texto -->
+        <item name="android:textColor">@color/boton_color_texto</item>
+        <!-- Tamaño y tipo de letra -->
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>
+
