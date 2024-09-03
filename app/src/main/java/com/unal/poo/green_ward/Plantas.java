@@ -1,5 +1,6 @@
 package com.unal.poo.green_ward;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -29,10 +31,14 @@ public class Plantas extends AppCompatActivity {
 
     Button inicia;
     Button iniciar;
-    Button inicial;
+    Button regar1;
+    Button regar2;
+    Button regar3;
+    Button regar4;
 
     private DatabaseReference mDatabaseReference;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,20 +64,16 @@ public class Plantas extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        inicial= (Button)findViewById(R.id.buttonTanque);
-
-        inicial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent( Plantas.this, Agua.class);
-                startActivity(i);
-            }
-        });
 
         // Asocia las TextView en el layout
         mImagen1View = findViewById(R.id.imagen1);
         mImagen2View = findViewById(R.id.imagen2);
         mImagen3View = findViewById(R.id.imagen3);
+
+        regar1 = findViewById(R.id.Regar1);
+        regar2 = findViewById(R.id.Regar2);
+        regar3 = findViewById(R.id.Regar3);
+        regar4 = findViewById(R.id.Regar4);
 
         // Inicializa la referencia a la base de datos
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
@@ -133,6 +135,95 @@ public class Plantas extends AppCompatActivity {
                 Log.e("plantas", "Error en la base de datos: " + error.getMessage());
             }
         });
+
+        regar1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int data = 1;
+
+                // Establecer el valor en Firebase
+                mDatabaseReference.child("mojar1").setValue(data, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                        if (error != null) {
+                            // Manejar errores
+                            Log.e("plantas", "Error al escribir en Firebase: " + error.getMessage());
+                        } else {
+                            // Éxito
+                            Log.d("plantas", "Datos actualizados correctamente.");
+                        }
+                    }
+                });
+            }
+        });
+
+        regar2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int data = 1;
+
+                // Establecer el valor en Firebase
+                mDatabaseReference.child("mojar2").setValue(data, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                        if (error != null) {
+                            // Manejar errores
+                            Log.e("plantas", "Error al escribir en Firebase: " + error.getMessage());
+                        } else {
+                            // Éxito
+                            Log.d("plantas", "Datos actualizados correctamente.");
+                        }
+                    }
+                });
+            }
+        });
+
+        regar3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int data = 1;
+
+                // Establecer el valor en Firebase
+                mDatabaseReference.child("mojar3").setValue(data, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                        if (error != null) {
+                            // Manejar errores
+                            Log.e("plantas", "Error al escribir en Firebase: " + error.getMessage());
+                        } else {
+                            // Éxito
+                            Log.d("plantas", "Datos actualizados correctamente.");
+                        }
+                    }
+                });
+            }
+        });
+
+        regar4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int data = 1;
+
+                // Establecer el valor en Firebase
+                mDatabaseReference.child("mojar4").setValue(data, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                        if (error != null) {
+                            // Manejar errores
+                            Log.e("plantas", "Error al escribir en Firebase: " + error.getMessage());
+                        } else {
+                            // Éxito
+                            Log.d("plantas", "Datos actualizados correctamente.");
+                        }
+                    }
+                });
+            }
+        });
+
 
 
 
