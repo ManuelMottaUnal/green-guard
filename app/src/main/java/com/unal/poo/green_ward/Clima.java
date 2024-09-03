@@ -41,8 +41,8 @@ public class Clima extends AppCompatActivity {
         setContentView(R.layout.activity_clima);
 
         // Asocia las TextView en tu layout
-        mTempView = findViewById(R.id.textViewTemperaturaExteriorValue);
-        mHumView = findViewById(R.id.textViewHumedadExteriorValue);
+        mTempView = findViewById(R.id.textViewTemperaturaInteriorValue);
+        mHumView = findViewById(R.id.textViewHumedadInteriorValue);
         Puerta = findViewById(R.id.textViewAC);
 
         // Inicializa la referencia a la base de datos

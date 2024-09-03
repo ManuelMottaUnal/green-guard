@@ -60,22 +60,12 @@
             style= "@style/estiloBotonBasico"
             android:text="Clima" />
 
-        <Button
-            android:id="@+id/buttonTanque"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/boton_esquinas_redondas"
-            android:text="Tanque" />
-
         <TextView
             android:id="@+id/textHumSuelo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:text="Humedad del suelo"
+            android:layout_marginTop="60dp"
+            android:text="HUMEDAD DE LA PLANTA"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
@@ -92,7 +82,6 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:padding="15dp">
 
                     <androidx.cardview.widget.CardView
@@ -127,6 +116,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
                                 tools:srcCompat="@tools:sample/avatars" />
+
+                            <Button
+                                android:id="@+id/Regar1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Regar" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -169,6 +164,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
                                 tools:srcCompat="@tools:sample/avatars" />
+
+                            <Button
+                                android:id="@+id/Regar2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Regar" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -217,6 +218,12 @@
                                 android:layout_height="50dp"
                                 tools:srcCompat="@tools:sample/avatars" />
 
+                            <Button
+                                android:id="@+id/Regar3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Regar" />
+
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -255,6 +262,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
                                 tools:srcCompat="@tools:sample/avatars" />
+
+                            <Button
+                                android:id="@+id/Regar4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Regar" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
