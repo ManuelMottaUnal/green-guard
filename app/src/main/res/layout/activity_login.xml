@@ -6,9 +6,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#74BD38"
-    android:foregroundTint="#000000"
-    android:outlineAmbientShadowColor="#74BD38"
+    android:background="#45D659"
+    android:foregroundTint="#321A1A"
+    android:outlineAmbientShadowColor="#81DA38"
     android:outlineSpotShadowColor="#74BD38">
 
     <LinearLayout
@@ -79,29 +79,28 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="60dp"
-            android:background="@drawable/b_olvidar_c"
-            android:foregroundTint="#000000"
-            android:text="Registrarse"
-            android:textColor="#FFFFFF" />
+            android:background="@drawable/b_iniciar_s"
+            android:password="false"
+            android:text="INICIAR SESIÓN"
+            android:visibility="visible" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="200dp"
             android:layout_marginRight="60dp"
-            android:background="@drawable/b_iniciar_s"
-            android:backgroundTint="#000000"
-            android:password="false"
-            android:text="INICIAR SESIÓN"
-            android:visibility="visible" />
+            android:background="@drawable/b_olvidar_c"
+            android:foregroundTint="#000000"
+            android:text="Registrarse"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
