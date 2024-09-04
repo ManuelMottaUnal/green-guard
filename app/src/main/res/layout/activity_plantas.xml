@@ -52,20 +52,22 @@
 
         <Button
             android:id="@+id/buttonClima"
+            style="@style/estiloBotonBasico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="5dp"
-            style= "@style/estiloBotonBasico"
-            android:text="Clima" />
+            android:fontFamily="sans-serif-medium"
+            android:text="CLIMA"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textHumSuelo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="HUMEDAD DE LA PLANTA"
+            android:text="Humedad de la planta"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 

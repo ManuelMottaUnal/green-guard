@@ -39,7 +39,7 @@
             android:layout_height="49dp"
             android:layout_marginLeft="68dp"
             android:layout_marginTop="2dp"
-            android:text="Inicia seción para revisar el estado del cultivo"
+            android:text="Inicia sesión para revisar el estado del cultivo"
             android:textColor="#423636"
             android:textSize="17sp" />
 
