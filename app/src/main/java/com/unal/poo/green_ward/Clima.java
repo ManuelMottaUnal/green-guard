@@ -21,18 +21,28 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.unal.poo.green_ward.util.FetchWeatherTask;
 
+import java.util.Objects;
 
 
 public class Clima extends AppCompatActivity {
 
     TextView mTempView;
+    TextView mTempExterior;
     TextView mHumView;
-    TextView Puerta;
+    TextView mHumExterior;
+    TextView puerta;
+    TextView textViewClimaDescripcion;
     Button AC;
+    ImageView imageViewClima;
     Integer data = 0;
+    double latitud = 0;
+    double longitud = 0;
+    String url;
 
     private DatabaseReference mDatabaseReference;
+    private FetchWeatherTask fetchWeatherTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +52,16 @@ public class Clima extends AppCompatActivity {
 
         // Asocia las TextView en tu layout
         mTempView = findViewById(R.id.textViewTemperaturaInteriorValue);
+        mTempExterior = findViewById(R.id.textViewTemperaturaExteriorValue);
         mHumView = findViewById(R.id.textViewHumedadInteriorValue);
-        Puerta = findViewById(R.id.textViewAC);
+        puerta = findViewById(R.id.textViewAC);
+        mHumExterior = findViewById(R.id.textViewHumedadExteriorValue);
+        imageViewClima = findViewById(R.id.imageViewClima);
+        textViewClimaDescripcion = findViewById(R.id.TextViewClimaDescripcion);
 
         // Inicializa la referencia a la base de datos
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        fetchWeatherTask = new FetchWeatherTask();
 
         AC = findViewById(R.id.buttonAC);
 
@@ -100,6 +115,74 @@ public class Clima extends AppCompatActivity {
                 } else {
                     Log.d("clima", "No existe el nodo 'Humedad'");
                 }
+
+                if (dataSnapshot.exists() && dataSnapshot.hasChild("Ubicacion")) {
+                    try {
+                        longitud = Double.parseDouble(Objects.requireNonNull(dataSnapshot.child("Ubicacion").child("longitud").getValue()).toString());
+                        latitud = Double.parseDouble(Objects.requireNonNull(dataSnapshot.child("Ubicacion").child("latitud").getValue()).toString());
+                        Log.i("Clima", "Latitud: " + latitud);
+                        Log.i("Clima", "Longitud: " + longitud);
+                        readWeather();
+                    } catch (Exception e) {
+                        Log.e("clima", e.getMessage());
+                    }
+
+                }
+                if (dataSnapshot.exists() && dataSnapshot.hasChild("Clima")) {
+                    DataSnapshot mainDataSnapshot = dataSnapshot.child("Clima").child("main");
+                    if (mainDataSnapshot.exists() && mainDataSnapshot.hasChild("humidity")) {
+                        mHumExterior.setText(mainDataSnapshot.child("humidity").getValue(Long.class).toString() + "%");
+                    }
+                    if (mainDataSnapshot.exists() && mainDataSnapshot.hasChild("temp")) {
+                        mTempExterior.setText(mainDataSnapshot.child("temp").getValue(Long.class).toString() + "°C");
+                    }
+                    DataSnapshot weatherDataSnapshot = dataSnapshot.child("Clima").child("weather").child("0").child("main");
+                    if (weatherDataSnapshot.exists()) {
+                        String mainWeatherValue = weatherDataSnapshot.getValue(String.class);
+                        Log.i("Clima", "Valor clima => " + mainWeatherValue);
+                        url = "";
+                        // Evaluar el valor de 'main' y asignar la URL correspondiente
+                        String descripcionClima = "";
+                        switch (mainWeatherValue) {
+                            case "Clear":
+                                url = "https://publicdomainvectors.org/photos/sivvus_weather_symbols_1.png";
+                                descripcionClima = "Despejado";
+                                break;
+                            case "Clouds":
+                                url = "https://publicdomainvectors.org/photos/stylized_basic_cloud.png";
+                                descripcionClima = "Nublado";
+                                break;
+                            case "Rain":
+                                url = "https://publicdomainvectors.org/photos/weather-showers-scattered.png";
+                                descripcionClima = "Lluvia";
+                                break;
+                            case "Thunderstorm":
+                                url = "https://publicdomainvectors.org/photos/thunderstorm.png";
+                                descripcionClima = "Tormenta";
+                                break;
+                            case "Snow":
+                                url = "https://publicdomainvectors.org/photos/sivvus_weather_symbols_5.png";
+                                descripcionClima = "Nieve";
+                                break;
+                            case "Drizzle":
+                                url = "https://publicdomainvectors.org/photos/spite_rain.png";
+                                descripcionClima = "Llovizna";
+                                break;
+                            case "Mist":
+                            case "Fog":
+                            case "Haze":
+                                url = "https://publicdomainvectors.org/photos/Surreal-Misty-Valley.png";
+                                descripcionClima = "Niebla";
+                                break;
+                            default:
+                                url = "https://publicdomainvectors.org/photos/mono-question-mark.png";
+                                descripcionClima = "Desconocido";
+                                break;
+                        }
+                        textViewClimaDescripcion.setText(descripcionClima);
+                        updateImageWeater();
+                    }
+                }
             }
 
             @Override
@@ -118,24 +201,24 @@ public class Clima extends AppCompatActivity {
                     if (puertaValue != null) {
                         // Mostrar "Cerrada" si el valor es 1, "Abierta" si el valor es 0
                         if (puertaValue == 1) {
-                            Puerta.setText("Cerrada");
+                            puerta.setText("Cerrada");
                         } else if (puertaValue == 0) {
-                            Puerta.setText("Abierta");
+                            puerta.setText("Abierta");
                         } else {
-                            Puerta.setText("Valor no reconocido");
+                            puerta.setText("Valor no reconocido");
                         }
                     } else {
-                        Puerta.setText("Valor de Puerta no disponible");
+                        puerta.setText("Valor de Puerta no disponible");
                     }
                 } else {
-                    Puerta.setText("Nodo 'Puerta' no existe");
+                    puerta.setText("Nodo 'Puerta' no existe");
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Manejar errores
-                Puerta.setText("Error al leer los datos: " + databaseError.getMessage());
+                puerta.setText("Error al leer los datos: " + databaseError.getMessage());
             }
         });
 
@@ -145,9 +228,16 @@ public class Clima extends AppCompatActivity {
             return insets;
         });
 
-        ImageView imageViewClima = findViewById(R.id.imageViewClima);
-        String url = "https://publicdomainvectors.org/photos/thunderstorm.png";
+    }
 
+    private void readWeather() {
+        String apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitud + "&lon=" + longitud + "&appid=38ecca0a2e0879ba5a84ed007561a819&units=metric";
+        fetchWeatherTask.fetchWeather(apiUrl, this);
+    }
+
+    private void updateImageWeater() {
         Glide.with(this).load(url).into(imageViewClima);
     }
+
+
 }
