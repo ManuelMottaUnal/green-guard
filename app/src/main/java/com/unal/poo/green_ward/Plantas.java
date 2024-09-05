@@ -28,6 +28,7 @@ public class Plantas extends AppCompatActivity {
     ImageView mImagen1View;
     ImageView mImagen2View;
     ImageView mImagen3View;
+    ImageView mImagen4View;
 
     Button inicia;
     Button iniciar;
@@ -69,7 +70,7 @@ public class Plantas extends AppCompatActivity {
         mImagen1View = findViewById(R.id.imagen1);
         mImagen2View = findViewById(R.id.imagen2);
         mImagen3View = findViewById(R.id.imagen3);
-
+        mImagen4View = findViewById(R.id.imagen4);
         regar1 = findViewById(R.id.Regar1);
         regar2 = findViewById(R.id.Regar2);
         regar3 = findViewById(R.id.Regar3);
@@ -121,6 +122,20 @@ public class Plantas extends AppCompatActivity {
 
                 } else {
                     Log.d("plantas", "No existe el nodo 'Humedad de piso 3:'");
+                    // Manejar el caso en el que los datos o el nodo no existen
+                }
+
+                if (dataSnapshot.exists() && dataSnapshot.hasChild("Humedad de piso 4")) {
+                    try {
+                        int humedad = Integer.parseInt(dataSnapshot.child("Humedad de piso 4").getValue().toString());
+                        asignarEmoji(humedad, mImagen4View);
+                    } catch (NumberFormatException e) {
+                        Log.e("plantas", "Error al convertir a int: " + e.getMessage());
+
+                    }
+
+                } else {
+                    Log.d("plantas", "No existe el nodo 'Humedad de piso 4:'");
                     // Manejar el caso en el que los datos o el nodo no existen
                 }
 
