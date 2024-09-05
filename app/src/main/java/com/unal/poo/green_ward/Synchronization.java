@@ -85,8 +85,8 @@ public class Synchronization extends AppCompatActivity {
                             resultTextView.setText("Se ha guardado la ubicación correctamente");
                             resultTextView.setVisibility(View.VISIBLE);
                             // Usa las coordenadas para hacer la solicitud a la API del clima
-                            String apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitud + "&lon=" + longitud + "&appid=38ecca0a2e0879ba5a84ed007561a819";
-                            new FetchWeatherTask().execute(apiUrl);
+
+
                         } else {
                             Toast.makeText(Synchronization.this, "No se pudo obtener la ubicación", Toast.LENGTH_SHORT).show();
                         }
@@ -102,38 +102,6 @@ public class Synchronization extends AppCompatActivity {
                 obtenerUbicacion();
             } else {
                 Toast.makeText(this, "Permiso de ubicación denegado", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    private class FetchWeatherTask extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-            try {
-                URL url = new URL(urls[0]);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
-
-                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                StringBuilder result = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    result.append(line);
-                }
-                reader.close();
-                return result.toString();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            if (result != null) {
-                resultTextView.setText(result);
-            } else {
-                resultTextView.setText("Error al obtener datos");
             }
         }
     }

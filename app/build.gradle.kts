@@ -59,5 +59,6 @@ dependencies {
 
     //ubicación
     implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("com.google.code.gson:gson:2.8.9")
 
 }
